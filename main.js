@@ -20,16 +20,9 @@ async function getWeatherdata(url) {
 }
 
 async function getWeatherFromCity(city) {
-  console.log('city', city);
   const gpsURL = createGPSURL(city);
-  console.log('gpsURL', gpsURL);
   const gpsData = await getGPSdata(gpsURL);
-  console.log('gpsData', gpsData);
   const weatherURL = createWeatherURL(gpsData);
-  console.log('weatherURL', weatherURL);
   const weather = await getWeatherdata(weatherURL);
-  console.log('weather', weather);
   return weather;
 }
-
-getWeatherFromCity('Mannheim').then((resolve) => console.log(resolve));
