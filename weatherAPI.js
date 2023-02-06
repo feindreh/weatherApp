@@ -19,6 +19,7 @@ async function getWeatherdata(url) {
 }
 function goodData(data) {
   return {
+    country: data.sys.country,
     name: data.name,
     temp: Math.floor((makeC(data.main.temp)) * 10) / 10,
     maxtemp: Math.floor((makeC(data.main.temp_max)) * 10) / 10,

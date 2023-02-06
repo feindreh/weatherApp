@@ -16,6 +16,9 @@ export default function createWeatherElement(data) {
   const cloudName = divClass('NameElement');
   cloudName.innerText = data.cloudName;
 
-  weatherELement.append(name, temp, cloudStatus, cloudName);
+  const country = divClass('countryElement');
+  country.innerText = data.country;
+
+  weatherELement.append(name, country, temp, cloudStatus, cloudName);
   return weatherELement;
 }
