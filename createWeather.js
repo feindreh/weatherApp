@@ -35,10 +35,18 @@ export function createOptions(arr){
 
     const name = divClass("optionName")
     name.innerText = arr[i].name;
+
     const country = divClass("optioncountry")
     country.innerText = arr[i].country
+
     const state = divClass("optionState")
     state.innerText = arr[i].state
+    if(arr[i].state === undefined){
+      state.innerText = ""
+    }
+    
+   
+
 
     option.append(name,country,state)
     options.append(option)
