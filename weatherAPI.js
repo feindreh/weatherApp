@@ -4,7 +4,7 @@ function createWeatherURL(dataObj) {
   return `https://api.openweathermap.org/data/2.5/weather?lat=${dataObj.lat}&lon=${dataObj.lon}&appid=ef0d45a2a18a8fc1ca9449306cdaae5c`;
 }
 function createGPSURL(city) {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=100&appid=ef0d45a2a18a8fc1ca9449306cdaae5c`;
+  return `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=100&appid=ef0d45a2a18a8fc1ca9449306cdaae5c`;
 }
 async function getGPSdata(url) {
   const dataPromise = await fetch(url);
