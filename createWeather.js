@@ -20,9 +20,15 @@ export function createWeatherElement(data) {
   country.innerText = data.country;
 
   const icon = document.createElement("img");
-  icon.src = data.icon
+  icon.src = data.icon;
 
-  weatherELement.append(name, country, temp, cloudStatus, cloudName,icon);
+  const closeIT = divClass("closeIT");
+  closeIT.innerText = "close"
+  closeIT.addEventListener(("click"),(e)=>{
+    e.target.parentNode.remove()
+  })
+
+  weatherELement.append(name, country, temp, cloudStatus, cloudName,icon,closeIT);
   return weatherELement;
 }
 

@@ -45,6 +45,5 @@ export async function getGPSoptions(cityName){
 export async function getWeatherfromGps(gps){
   const url = createWeatherURL(gps);
   const weather = await getWeatherdata(url);
-  console.log(goodData(weather))
   return goodData(weather)
 }
