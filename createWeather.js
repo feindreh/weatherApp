@@ -8,7 +8,7 @@ export function createWeatherElement(data) {
   name.innerText = data.name;
 
   const temp = divClass('tempElement');
-  temp.innerText = data.temp;
+  temp.innerText = `${data.temp}°C`;
 
   const cloudStatus = divClass('statusElement');
   cloudStatus.innerText = data.cloudStatus;
@@ -17,7 +17,7 @@ export function createWeatherElement(data) {
   cloudName.innerText = data.cloudName;
 
   const country = divClass('countryElement');
-  country.innerText = data.country;
+  country.innerText = `(${data.country})`
 
   const icon = document.createElement("img");
   icon.src = data.icon;

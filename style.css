@@ -8,10 +8,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 #container{
-    background-color: rgb(133, 121, 189);
 }
 #header {
-    border: solid 1px black;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -35,20 +33,23 @@ button{
     margin: 10px;
 }
 #options{
+    background: rgb(192, 183, 183);
     position: absolute;
     display:flex;
     flex-direction: column;
-    background-color:rgb(206, 211, 206);
-    width: 100%;
-    padding:15px;
+    transform: translate(15%,0%);
+    width: 70%;
 }
 .option{
     display: flex;
-    border-bottom: 2px grey solid;
+    border-bottom: 2px rgb(82, 76, 76) solid;
     margin-top: 15px;
     font-size: 18px;
     justify-content: flex-start;
     gap: 15px;
+}
+.option:active{
+    font-size:20px;
 }
 #options>.option:last-child{
     border-bottom:none;
@@ -66,6 +67,7 @@ button{
 }
 
 .weatherElement{
+    background-color:beige;
     position: relative;
     box-shadow: 0px 0px 4px 2px black;
     margin-top: 25px;
@@ -81,4 +83,9 @@ button{
     font-size: 25px;
     color: white;
     width: 100px;
+}
+
+.cityElement{
+    font-weight: bold;
+    font-size: 28px;
 }
