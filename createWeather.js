@@ -19,7 +19,10 @@ export function createWeatherElement(data) {
   const country = divClass('countryElement');
   country.innerText = data.country;
 
-  weatherELement.append(name, country, temp, cloudStatus, cloudName);
+  const icon = document.createElement("img");
+  icon.src = data.icon
+
+  weatherELement.append(name, country, temp, cloudStatus, cloudName,icon);
   return weatherELement;
 }
 
