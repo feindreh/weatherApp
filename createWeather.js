@@ -1,7 +1,6 @@
 import { divClass, divID } from './helper.js';
 
-export default function createWeatherElement(data) {
-  console.log(data);
+export function createWeatherElement(data) {
   const weatherELement = divClass('weatherElement');
 
   const name = divClass('cityElement');
@@ -21,4 +20,8 @@ export default function createWeatherElement(data) {
 
   weatherELement.append(name, country, temp, cloudStatus, cloudName);
   return weatherELement;
+}
+
+export function filterGPSdata(incomingData) {
+  console.log(incomingData);
 }
