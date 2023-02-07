@@ -1,5 +1,4 @@
 import { makeC } from './helper.js';
-import { filterGPSdata } from './createWeather.js';
 
 function createWeatherURL(dataObj) {
   return `https://api.openweathermap.org/data/2.5/weather?lat=${dataObj.lat}&lon=${dataObj.lon}&appid=ef0d45a2a18a8fc1ca9449306cdaae5c`;
@@ -12,7 +11,7 @@ async function getGPSdata(url) {
   const data = await dataPromise.json();
   return data;
 }
-async function getWeatherdata(url) {
+ async function getWeatherdata(url) {
   const weatherPromise = await fetch(url);
   const weather = await weatherPromise.json();
   return weather;
@@ -28,14 +27,16 @@ function goodData(data) {
     cloudName: data.weather[0].description,
   };
 }
-export default async function getWeatherFromCity(city) {
-  const gpsURL = createGPSURL(city);
-  const gpsData = await getGPSdata(gpsURL);
 
-  const goodGpsData = await filterGPSdata(gpsData);
-  console.log(goodGpsData);
 
-  // const weatherURL = createWeatherURL(gpsData);
-  // const weather = await getWeatherdata(weatherURL);
-  // return goodData(weather);
+export async function getGPSoptions(cityName){
+  const newURL = createGPSURL(cityName);
+  const data = await getGPSdata(newURL);
+  return data
+}
+
+export async function getWeatherfromGps(gps){
+  const url = createWeatherURL(gps);
+  const weather = await getWeatherdata(url);
+  return goodData(weather)
 }

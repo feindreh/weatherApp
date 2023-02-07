@@ -1,4 +1,5 @@
 import { divClass, divID } from './helper.js';
+import { getWeatherfromGps } from './weatherAPI.js';
 
 export function createWeatherElement(data) {
   const weatherELement = divClass('weatherElement');
@@ -22,14 +23,7 @@ export function createWeatherElement(data) {
   return weatherELement;
 }
 
-export async function filterGPSdata(incomingData) {
-  const options = createOptions(incomingData);
-  console.log(options)
-}
-
-
-function createOptions(arr){
-  console.log(arr)
+export function createOptions(arr){
   const options = divID("options");
 
   for(let i = 0; i<arr.length;i++){
@@ -45,6 +39,12 @@ function createOptions(arr){
 
     option.append(name,country,state)
     options.append(option)
+    option.addEventListener("click", async ()=>{
+      const weather = await getWeatherfromGps(arr[i]);
+      document.querySelector("#options").remove();
+
+      document.querySelector("#weatherDisplay").append(createWeatherElement(weather))
+    })
   }
 
 return options
