@@ -14,7 +14,6 @@ Button.addEventListener('click', async () => {
 
   const gpsOptions = await getGPSoptions(input.value);
   clearInput(input);
-  console.log("gpsOptions",gpsOptions)
   content.append(createOptions(gpsOptions))
 });
 
