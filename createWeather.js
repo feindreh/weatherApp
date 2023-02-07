@@ -22,6 +22,30 @@ export function createWeatherElement(data) {
   return weatherELement;
 }
 
-export function filterGPSdata(incomingData) {
-  console.log(incomingData);
+export async function filterGPSdata(incomingData) {
+  const options = createOptions(incomingData);
+  console.log(options)
+}
+
+
+function createOptions(arr){
+  console.log(arr)
+  const options = divID("options");
+
+  for(let i = 0; i<arr.length;i++){
+    
+    const option = divClass("option")
+
+    const name = divClass("optionName")
+    name.innerText = arr[i].name;
+    const country = divClass("optioncountry")
+    country.innerText = arr[i].country
+    const state = divClass("optionState")
+    state.innerText = arr[i].state
+
+    option.append(name,country,state)
+    options.append(option)
+  }
+
+return options
 }
